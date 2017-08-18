@@ -53,7 +53,7 @@
 {\def\fibeamer@versiondef#1#2{
   \gdef\fibeamer@version@number{#1}
   \gdef\fibeamer@version@date{#2}
-  \gdef\fibeamer@version{#2 #1 fibeamer MU beamer theme}}
+  \gdef\fibeamer@version{#2 #1 fibeamer fcfm beamer theme}}
 \fibeamer@versiondef{v1.1.7}{2017/07/05}}
 % {\newwrite\f\openout\f=VERSION\write\f{\fibeamer@version}\closeout\f}
 %
@@ -164,11 +164,11 @@
 % identifier of the university, at which the presentation is being
 % written, to \textit{identifier}. The \textit{identifier} is
 % stored within the |\fibeamer@university| macro, whose
-% implicit value is \texttt{mu}. This value corresponds to the
+% implicit value is \texttt{fcfm}. This value corresponds to the
 % Masaryk University in Brno.
 %    \begin{macrocode}
 \DeclareOptionBeamer{university}{\def\fibeamer@university{#1}}
-\ExecuteOptionsBeamer{university=mu}
+\ExecuteOptionsBeamer{university=fcfm}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\fibeamer@faculty}
@@ -323,7 +323,7 @@
 % |\fibeamer@subdir| macro and stored within the
 % |\fibeamer@logoPath| macro, whose implicit value is
 % |\fibeamer@basePath| followed by |logo/\fibeamer@university|. By
-% default, this expands to \texttt{fibeamer/logo/mu/}.
+% default, this expands to \texttt{fibeamer/logo/fcfm/}.
 %    \begin{macrocode}
 \DeclareOptionBeamer{logoPath}{%
   \def\fibeamer@logoPath{\fibeamer@subdir#1%
@@ -343,7 +343,7 @@
 % \texttt{fibeamer-}|\fibeamer@university|\texttt{^^A
 % \discretionary{-}{-}{-}}|\fibeamer@faculty|\texttt{-}^^A
 % |\fibeamer@logoLocale|. By default, this expands to
-% \texttt{fibeamer\discretionary{/}{/}{/}logo/fibeamer-mu-fi^^A
+% \texttt{fibeamer\discretionary{/}{/}{/}logo/fibeamer-fcfm-fi^^A
 % -english}.
 %    \begin{macrocode}
 \DeclareOptionBeamer{logo}{\def\fibeamer@logo{#1}}
@@ -365,7 +365,7 @@
 % \texttt{fibeamer-}|\fibeamer@uni|\texttt{\discretionary{-}{}{}}^^A
 % |versity\fibeamer@faculty|\texttt{-english}. By default, this
 % expands to \texttt{fibeamer/logo\discretionary{/}{/}{/}fi\-bea^^A
-% mer-mu-fi-english}.
+% mer-fcfm-fi-english}.
 %    \begin{macrocode}
 \DeclareOptionBeamer{fallbackLogo}{\def\fibeamer@fallbackLogo{#1}}
 \ExecuteOptionsBeamer{%
