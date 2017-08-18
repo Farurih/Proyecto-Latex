@@ -1,47 +1,39 @@
-SUBMAKES_REQUIRED=logo/mu theme/mu
-SUBMAKES_EXTRA=guide/mu example/mu
-SUBMAKES_TEST=test/mu
+SUBMAKES_REQUIRED=logo/fcfm theme/fcfm
+SUBMAKES_EXTRA=guide/fcfm example/fcfm
+SUBMAKES_TEST=test/fcfm
 SUBMAKES=$(SUBMAKES_REQUIRED) $(SUBMAKES_EXTRA) $(SUBMAKES_TEST)
 .PHONY: all base complete docs clean dist dist-implode implode \
 	install install-base install-docs uninstall tests $(SUBMAKES)
 
 BASETHEMEFILE=beamerthemefibeamer.sty
-OTHERTHEMEFILES=theme/mu/*.sty
+OTHERTHEMEFILES=theme/fcfm/*.sty
 THEMEFILES=$(BASETHEMEFILE) $(OTHERTHEMEFILES)
 LOGOSOURCES=logo/*/*.pdf
 LOGOS=logo/*/*.eps
-DTXFILES=*.dtx theme/mu/*.dtx
-INSFILES=*.ins theme/mu/*.ins
-TESTS=test/mu/*.pdf
-MAKES=guide/mu/Makefile theme/mu/Makefile logo/mu/Makefile Makefile \
-	test/mu/Makefile
-USEREXAMPLE_SOURCES=example/mu/Makefile example/mu/example.dtx \
-	example/mu/*.ins
-USEREXAMPLES=example/mu/econ-lualatex.pdf \
-	example/mu/econ-pdflatex.pdf example/mu/fi-lualatex.pdf \
-	example/mu/fi-pdflatex.pdf example/mu/fsps-lualatex.pdf \
-	example/mu/fsps-pdflatex.pdf example/mu/fss-lualatex.pdf \
-	example/mu/fss-pdflatex.pdf example/mu/law-lualatex.pdf \
-	example/mu/law-pdflatex.pdf example/mu/med-lualatex.pdf \
-	example/mu/med-pdflatex.pdf example/mu/ped-lualatex.pdf \
-	example/mu/ped-pdflatex.pdf example/mu/phil-lualatex.pdf \
-	example/mu/phil-pdflatex.pdf example/mu/sci-lualatex.pdf \
-	example/mu/sci-pdflatex.pdf
+DTXFILES=*.dtx theme/fcfm/*.dtx
+INSFILES=*.ins theme/fcfm/*.ins
+TESTS=test/fcfm/*.pdf
+MAKES=guide/fcfm/Makefile theme/fcfm/Makefile logo/fcfm/Makefile Makefile \
+	test/fcfm/Makefile
+USEREXAMPLE_SOURCES=example/fcfm/Makefile example/fcfm/example.dtx \
+	example/fcfm/*.ins
+USEREXAMPLES=example/fcfm/IQBT-lualatex.pdf 
+
 DEVEXAMPLES=logo/DESCRIPTION logo/EXAMPLE/DESCRIPTION \
-	logo/mu/DESCRIPTION theme/EXAMPLE/DESCRIPTION \
-	theme/mu/DESCRIPTION theme/DESCRIPTION example/DESCRIPTION \
-	example/EXAMPLE/DESCRIPTION example/mu/DESCRIPTION \
-	example/mu/resources/DESCRIPTION guide/DESCRIPTION \
-	guide/EXAMPLE/DESCRIPTION guide/mu/DESCRIPTION \
-	guide/mu/resources/DESCRIPTION test/DESCRIPTION \
-	test/EXAMPLE/DESCRIPTION test/mu/DESCRIPTION
+	logo/fcfm/DESCRIPTION theme/EXAMPLE/DESCRIPTION \
+	theme/fcfm/DESCRIPTION theme/DESCRIPTION example/DESCRIPTION \
+	example/EXAMPLE/DESCRIPTION example/fcfm/DESCRIPTION \
+	example/fcfm/resources/DESCRIPTION guide/DESCRIPTION \
+	guide/EXAMPLE/DESCRIPTION guide/fcfm/DESCRIPTION \
+	guide/fcfm/resources/DESCRIPTION test/DESCRIPTION \
+	test/EXAMPLE/DESCRIPTION test/fcfm/DESCRIPTION
 EXAMPLES=$(USEREXAMPLES) $(DEVEXAMPLES)
-MISCELLANEOUS=guide/mu/guide.bib \
-	guide/mu/guide.dtx guide/mu/*.ins guide/mu/resources/cog.pdf \
-  guide/mu/resources/vader.pdf guide/mu/resources/yoda.pdf \
+MISCELLANEOUS=guide/fcfm/guide.bib \
+	guide/fcfm/guide.dtx guide/fcfm/*.ins guide/fcfm/resources/cog.pdf \
+  guide/fcfm/resources/vader.pdf guide/fcfm/resources/yoda.pdf \
 	$(USEREXAMPLES:.pdf=.tex) \
-	example/mu/resources/jabberwocky-dark.pdf \
-	example/mu/resources/jabberwocky-light.pdf README.md
+	example/fcfm/resources/jabberwocky-dark.pdf \
+	example/fcfm/resources/jabberwocky-light.pdf README.md
 RESOURCES=$(THEMEFILES) $(LOGOS) $(LOGOSOURCES)
 SOURCES=$(DTXFILES) $(INSFILES) LICENSE.tex
 AUXFILES=fibeamer.aux fibeamer.log fibeamer.toc fibeamer.ind \
@@ -49,9 +41,8 @@ AUXFILES=fibeamer.aux fibeamer.log fibeamer.toc fibeamer.ind \
 	fibeamer.glo fibeamer.hd
 MANUAL=fibeamer.pdf
 PDFSOURCES=fibeamer.dtx
-GUIDES=guide/mu/econ.pdf guide/mu/fi.pdf guide/mu/fsps.pdf \
-	guide/mu/fss.pdf guide/mu/law.pdf guide/mu/med.pdf \
-	guide/mu/ped.pdf guide/mu/phil.pdf guide/mu/sci.pdf
+GUIDES=guide/fcfm/IQBT.pdf
+
 PDFS=$(MANUAL) $(GUIDES) $(USEREXAMPLES)
 DOCS=$(MANUAL) $(GUIDES)
 VERSION=VERSION.tex
@@ -133,7 +124,7 @@ $(CTANARCHIVE): $(SOURCES) $(MAKES) $(TESTS) $(EXAMPLES) \
 	cp --verbose $(TDSARCHIVE) "$$DIR" && \
 	cp --parents --verbose $^ "$$DIR/fibeamer" && \
 	printf '.PHONY: implode\nimplode:\n' > \
-		"$$DIR/fibeamer/example/mu/Makefile" && \
+		"$$DIR/fibeamer/example/fcfm/Makefile" && \
 	(cd "$$DIR" && zip -r -v -nw $@ *) && \
 	mv "$$DIR"/$@ . && rm -rf "$$DIR"
 
